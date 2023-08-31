@@ -17,15 +17,15 @@ task("attack", "Send many txs in parallel")
             console.log("Public address:", newAccount.address, "-> Private key: " + msg(newAccount.privateKey))
             const signer = newAccount.connect(ethers.provider);
 
-            const amount = ethers.parseEther("0.00006")
+            const amount = ethers.parseEther("0.0006")
             const fundWallet = await master.sendTransaction({
                 to: newAccount.address,
                 value: amount
             });
 
             await fundWallet.wait(1)
-            await run(signer, "0x2A46B5e8A31C21ECdccc09A07303E60A5AeB0327")
-            
+            await run(signer, "0x1D3Ddc8A5A83ad20585129E3C7BE84B9363DC76F")
+
         }
         
     }

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
-    "basic": "hardhat run scripts/deploy.ts --network goerli",
-    "attack": "hardhat compile && hardhat --network goerli attack"
+    "basic": "hardhat run scripts/deploy.ts --network arthera-testnet",
+    "attack": "hardhat compile && hardhat --network arthera-testnet attack"
   },
   "keywords": [],
   "author": "",
