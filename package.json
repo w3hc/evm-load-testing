@@ -6,7 +6,7 @@
   "scripts": {
     "test": "hardhat test",
     "basic": "hardhat run scripts/deploy.ts --network goerli",
-    "attack": "hardhat --network goerli attack"
+    "attack": "hardhat compile && hardhat --network goerli attack"
   },
   "keywords": [],
   "author": "",

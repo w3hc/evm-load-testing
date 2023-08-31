@@ -9,14 +9,15 @@ task("attack", "Send many txs in parallel")
 
         const [master] = await ethers.getSigners()
 
+        console.log("Generating and funding new account...")
+
         for(let i=0;i<Number(arg1.force);i++) {
 
             const newAccount = ethers.Wallet.createRandom()
             console.log("Public address:", newAccount.address, "-> Private key: " + msg(newAccount.privateKey))
             const signer = newAccount.connect(ethers.provider);
 
-            const amount = ethers.parseEther("0.00003")
-
+            const amount = ethers.parseEther("0.00006")
             const fundWallet = await master.sendTransaction({
                 to: newAccount.address,
                 value: amount
