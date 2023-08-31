@@ -15,7 +15,7 @@ pnpm install
 Create a `.env` file:
 
 ```
-cp .env.example .env
+cp .env.template .env
 ```
 
 Add your own keys in the `.env` file. 
@@ -32,10 +32,10 @@ pnpm test
 pnpm basic
 ```
 
-or
+## Run
 
 ```
-npx hardhat run scripts/deploy.ts --network goerli
+pnpm attack --force 1
 ```
 
 ## Versions
