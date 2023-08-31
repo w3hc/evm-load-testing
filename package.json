@@ -1,12 +1,14 @@
 {
-  "name": "w3hc-hardhat-template",
+  "name": "evm-load-testing",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
     "basic": "hardhat run scripts/deploy.ts --network arthera-testnet",
-    "attack": "hardhat compile && hardhat --network arthera-testnet attack"
+    "fund": "hardhat compile && hardhat --network arthera-testnet fund",
+    "dance": "hardhat --network arthera-testnet dance",
+    "now": "npx hardhat run scripts/now.ts --network arthera-testnet"
   },
   "keywords": [],
   "author": "",

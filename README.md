@@ -35,8 +35,25 @@ pnpm basic
 ## Run
 
 ```
-pnpm attack --force 1
+./attack.sh 30
 ```
+
+Then, put the wallets.json back to its initial state: 
+
+```
+{
+    "0": {
+        "address": "0xBAAe015b911929fA1Dd36961aA3871c9C36728E6",
+        "privateKey": "0x903a4d76a032eee960e48986ba303e21239897cdc542882b2ed4aa4b7c89c508"
+    }
+}
+```
+
+## Latest run 
+
+From block 73084 (2023-08-31T16:59:02.625Z) to block 73349 (2023-08-31T17:01:00.455Z)
+
+[View asciinema](https://asciinema.org/a/8OIATaFNckG2j7xTpzDkItlBU)
 
 ## Versions
 
