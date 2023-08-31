@@ -18,17 +18,13 @@ export default async function run(signer:any, contractAddress:string) {
         // Getting a "ProviderError: already known" if number of loops is 2
         for(let i=0;i<1;i++) {
 
-            const amount = ethers.parseEther('0.00000001')
-            const [master] = await ethers.getSigners()
+            const amount = ethers.parseEther('42')
+            const mint = await basic.mint(amount)
+            console.log('Mint tx:', msg(mint.hash))
 
-            const tx = await signer.sendTransaction({
-                to: signer.address,
-                value: 1
-            });
-
-            console.log('\ntx:', msg(tx.hash))
-            console.log('hello2')
         }
+        console.log('Done ✅\n')
+
     } catch(e) {
         console.log('error during run:', e)
     }
