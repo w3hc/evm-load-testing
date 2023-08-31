@@ -1,10 +1,4 @@
-# W3HC Hardhat Template
-
-This Hardhat template includes: 
-
-- Typescript
-- Ethers v6
-- Open Zeppelin contracts
+# EVM Load Testing
 
 ## Install
 
@@ -38,7 +32,7 @@ pnpm basic
 ./attack.sh 30
 ```
 
-Then, put the wallets.json back to its initial state: 
+Then, put the `wallets.json` file back to its initial state: 
 
 ```
 {
@@ -51,7 +45,7 @@ Then, put the wallets.json back to its initial state:
 
 ## Latest run 
 
-From block 73084 (2023-08-31T16:59:02.625Z) to block 73349 (2023-08-31T17:01:00.455Z)
+From block `73084` (2023-08-31T16:59:02.625Z) to block `73349` (2023-08-31T17:01:00.455Z)
 
 [View asciinema](https://asciinema.org/a/8OIATaFNckG2j7xTpzDkItlBU)
 
