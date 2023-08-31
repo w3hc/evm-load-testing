@@ -2,7 +2,8 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "@nomicfoundation/hardhat-verify";
 import * as dotenv from "dotenv";
-import "./tasks/attack"
+import "./tasks/fund"
+import "./tasks/dance"
 dotenv.config();
 
 const {
