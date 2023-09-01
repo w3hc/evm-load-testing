@@ -43,6 +43,12 @@ Then, put the `wallets.json` file back to its initial state:
 }
 ```
 
+## Analize
+
+```
+pnpm analize --start 73200 --end 73349
+```
+
 ## Latest run 
 
 - From block `73084` (2023-08-31T16:59:02.625Z) to block `73349` (2023-08-31T17:01:00.455Z)
