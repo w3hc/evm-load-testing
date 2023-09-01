@@ -10,7 +10,7 @@ task("fund", "Creates and funds as many wallets as you want")
 
         const [master] = await ethers.getSigners()
 
-        console.log("Creating and funding new account...")
+        console.log("Creating and funding new accounts...")
 
         for(let i=0;i<Number(arg1.num);i++) {
 
