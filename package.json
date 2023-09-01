@@ -9,7 +9,8 @@
     "fund": "hardhat compile && hardhat --network arthera-testnet fund",
     "dance": "hardhat --network arthera-testnet dance",
     "now": "npx hardhat run scripts/now.ts --network arthera-testnet",
-    "analize": "hardhat analize --network arthera-testnet"
+    "analize": "hardhat analize --network arthera-testnet",
+    "reset": "hardhat run scripts/reset.ts"
   },
   "keywords": [],
   "author": "",

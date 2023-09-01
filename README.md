@@ -35,12 +35,7 @@ pnpm basic
 Then, put the `wallets.json` file back to its initial state: 
 
 ```
-{
-    "0": {
-        "address": "0xBAAe015b911929fA1Dd36961aA3871c9C36728E6",
-        "privateKey": "0x903a4d76a032eee960e48986ba303e21239897cdc542882b2ed4aa4b7c89c508"
-    }
-}
+pnpm reset
 ```
 
 ## Analize
