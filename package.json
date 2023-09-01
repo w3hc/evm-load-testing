@@ -9,7 +9,7 @@
     "fund": "hardhat compile && hardhat --network arthera-devnet fund",
     "dance": "hardhat --network arthera-devnet dance",
     "now": "npx hardhat run scripts/now.ts --network arthera-devnet",
-    "analize": "hardhat analize --network arthera-devnet",
+    "analyze": "hardhat analyze --network arthera-devnet",
     "reset": "hardhat run scripts/reset.ts"
   },
   "keywords": [],
