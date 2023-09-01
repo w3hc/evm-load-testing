@@ -1,6 +1,12 @@
 # EVM Load Testing
 
+The app creates new wallets, funds them, then run the `dance.ts` task. 
+
 ## Install
+
+If you don't have pnpm installed on your machine, [here's what you should do](https://pnpm.io/installation). Same for [TypeScript](https://www.typescriptlang.org/download), or [Node.js](https://nodejs.org/en/download/current) if you don't have these installed yet. 
+
+And if you don't want to install these things at all, you always can use Github Codespace so you can use this app directly in your browser.
 
 ```
 pnpm install
@@ -22,14 +28,18 @@ pnpm test
 
 ## Deploy 
 
+If you want to use your own instance, you can:
+
 ```
 pnpm basic
 ```
 
+Then copy-paste the contract address in the `dance.ts` task.
+
 ## Run
 
 ```
-./attack.sh 30
+./attack.sh 42
 ```
 
 Then, put the `wallets.json` file back to its initial state: 
@@ -38,19 +48,11 @@ Then, put the `wallets.json` file back to its initial state:
 pnpm reset
 ```
 
-## Analize
+## Analyze
 
 ```
-pnpm analize --start 73200 --end 73349
+pnpm analyze --start 888888 --end 888888
 ```
-
-## Latest run 
-
-- From block `73084` (2023-08-31T16:59:02.625Z) to block `73349` (2023-08-31T17:01:00.455Z)
-- Total amount of transactions: `2672`
-- Duration (in seconds): `2672`
-- TPS rate (average): `56`
-[Watch video (asciinema)](https://asciinema.org/a/8OIATaFNckG2j7xTpzDkItlBU)
 
 ## Versions
 

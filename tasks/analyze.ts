@@ -3,7 +3,7 @@ var msg = (require("cli-color")).xterm(39).bgXterm(128);
 import fs from 'fs'
 import * as wallets from '../wallets.json'
 
-task("analize", "Returns a TPS rate for a given timefreme")
+task("analyze", "Returns a TPS rate for a given timefreme")
 .addParam("start", "When it started")
 .addParam("end", "When it ended")
 .setAction(
@@ -91,5 +91,3 @@ task("analize", "Returns a TPS rate for a given timefreme")
     }
     
 );
-
-// npx hardhat --network arthera-testnet tasks/analize.ts --start 1 --end 2
