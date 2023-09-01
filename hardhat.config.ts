@@ -40,6 +40,12 @@ const config: HardhatUserConfig = {
       chainId: 10243,
       accounts: ARTHERA_TESTNET_PRIVATE_KEY !== undefined ? [ARTHERA_TESTNET_PRIVATE_KEY] : []
     },
+    'arthera-devnet': {
+      url: 'https://rpc-dev.arthera.net',
+      chainId: 10245,
+      accounts: ARTHERA_TESTNET_PRIVATE_KEY !== undefined ? [ARTHERA_TESTNET_PRIVATE_KEY] : []
+    },
+    
   }, 
   etherscan: {
     apiKey: {
