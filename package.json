@@ -8,7 +8,8 @@
     "basic": "hardhat run scripts/deploy.ts --network arthera-testnet",
     "fund": "hardhat compile && hardhat --network arthera-testnet fund",
     "dance": "hardhat --network arthera-testnet dance",
-    "now": "npx hardhat run scripts/now.ts --network arthera-testnet"
+    "now": "npx hardhat run scripts/now.ts --network arthera-testnet",
+    "analize": "hardhat analize --network arthera-testnet"
   },
   "keywords": [],
   "author": "",
