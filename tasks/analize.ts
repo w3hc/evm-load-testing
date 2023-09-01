@@ -86,7 +86,7 @@ task("analize", "Returns a TPS rate for a given timefreme")
         console.log('numberOfTxs:', numberOfTxs)
         const duration = await getTimeDurationBetweenBlocks(Number(start), Number(end))
         console.log('duration:', duration)
-        console.log('Average TPS rate: ', (numberOfTxs / (duration || 0)).toFixed(2))
+        console.log('Average TPS rate:', msg((numberOfTxs / (duration || 0)).toFixed(2)))
 
     }
     
