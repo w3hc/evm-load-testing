@@ -9,7 +9,9 @@ contract Basic is ERC20 {
     }
 
     function mint(uint _supply) public {
+        // for (uint i = 0; i < 100; i++) {
         _mint(msg.sender, _supply);
+        // }
     }
 
     receive() external payable {

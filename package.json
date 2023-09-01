@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "hardhat test",
-    "basic": "hardhat run scripts/deploy.ts --network arthera-testnet",
-    "fund": "hardhat compile && hardhat --network arthera-testnet fund",
-    "dance": "hardhat --network arthera-testnet dance",
-    "now": "npx hardhat run scripts/now.ts --network arthera-testnet",
-    "analize": "hardhat analize --network arthera-testnet",
+    "basic": "hardhat run scripts/deploy.ts --network arthera-devnet",
+    "fund": "hardhat compile && hardhat --network arthera-devnet fund",
+    "dance": "hardhat --network arthera-devnet dance",
+    "now": "npx hardhat run scripts/now.ts --network arthera-devnet",
+    "analize": "hardhat analize --network arthera-devnet",
     "reset": "hardhat run scripts/reset.ts"
   },
   "keywords": [],
