@@ -4,6 +4,7 @@ import "@nomicfoundation/hardhat-verify";
 import * as dotenv from "dotenv";
 import "./tasks/fund"
 import "./tasks/dance"
+import "./tasks/analize"
 dotenv.config();
 
 const {
