@@ -45,9 +45,11 @@ Then, put the `wallets.json` file back to its initial state:
 
 ## Latest run 
 
-From block `73084` (2023-08-31T16:59:02.625Z) to block `73349` (2023-08-31T17:01:00.455Z)
-
-[View asciinema](https://asciinema.org/a/8OIATaFNckG2j7xTpzDkItlBU)
+- From block `73084` (2023-08-31T16:59:02.625Z) to block `73349` (2023-08-31T17:01:00.455Z)
+- Total amount of transactions: `2672`
+- Duration (in seconds): `2672`
+- TPS rate (average): `56`
+[Watch video (asciinema)](https://asciinema.org/a/8OIATaFNckG2j7xTpzDkItlBU)
 
 ## Versions
 
