@@ -13,7 +13,15 @@ async function main() {
   
   const jsonContent = JSON.stringify(initialWallets, null, 2);
   fs.writeFileSync('wallets.json', jsonContent);
+
+  const initialBlocks = {
+    "start": "88888",
+    "end": "88888"
+  }
   
+  const blocksJsonContent = JSON.stringify(initialBlocks, null, 2);
+  fs.writeFileSync('blocks.json', blocksJsonContent);
+
   console.log('Reset ✅');
   
 }

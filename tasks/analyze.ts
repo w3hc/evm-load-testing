@@ -1,7 +1,5 @@
 import { task } from "hardhat/config";
 var msg = (require("cli-color")).xterm(39).bgXterm(128);
-import fs from 'fs'
-import * as wallets from '../wallets.json'
 
 task("analyze", "Returns a TPS rate for a given timefreme")
 .addParam("start", "When it started")
@@ -12,24 +10,14 @@ task("analyze", "Returns a TPS rate for a given timefreme")
 
         const { start, end } = taskArgs;
 
-        // const [master] = await ethers.getSigners()
-
-        // console.log("\nstart:", Number(start))
-        // console.log("\nend:", Number(end))
-
-        // const getNbOfTxs = async () => {
-        //     const block = await ethers.provider.getBlock(Number(start));
-        //     const txsAmount = block.transactions.length;
-        //     console.log("TxsAmount:", txsAmount);
-        //     return txsAmount
-        // }
-
         async function getTotalTransactionsBetweenBlocks(startBlock:number, endBlock:number) {
             try {
               let totalTransactions = 0;
           
               for (let blockNumber = startBlock; blockNumber <= endBlock; blockNumber++) {
                 const block = await ethers.provider.getBlock(blockNumber);
+
+                console.log('Total txns in block #'+blockNumber+':', block.transactions.length)
           
                 if (block) {
                   totalTransactions += block.transactions.length;
@@ -74,16 +62,15 @@ task("analyze", "Returns a TPS rate for a given timefreme")
         getTimeDurationBetweenBlocks(startBlock, endBlock)
         .then((timeDuration) => {
             if (timeDuration !== undefined) {
-            console.log(`Time duration between blocks ${startBlock} and ${endBlock}: ${timeDuration} seconds`);
+            console.log(`Time duration between blocks ${startBlock} and ${endBlock}: ${msg(timeDuration)} seconds\n`);
             }
         })
         .catch((err) => {
             console.error('Error:', err);
         });
-
         
         const numberOfTxs = await getTotalTransactionsBetweenBlocks(Number(start), Number(end))
-        console.log('numberOfTxs:', numberOfTxs)
+        console.log('\nnumberOfTxs:', numberOfTxs)
         const duration = await getTimeDurationBetweenBlocks(Number(start), Number(end))
         console.log('duration:', duration)
         console.log('Average TPS rate:', msg((numberOfTxs / (duration || 0)).toFixed(2)))

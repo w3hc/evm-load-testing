@@ -31,25 +31,35 @@ task("dance", "Keep on running")
     
             const amount = ethers.parseEther('42')
 
+            const recordInitialBlock = await ethers.provider.getBlockNumber() 
+
             for(let i=0;i<300;i++) {
-                // console.log("signer address:", signer.address)
-                const mint = await basic.mint(amount)
-                console.log(msg(mint.hash))
 
-                // const amountSimple = ethers.parseEther("0.000000000000000008")
-                // const simpleTransfer = await signer.sendTransaction({
-                //     to: signer.address,
-                //     value: amountSimple, 
-                //     // gasLimit: 420000,
-                //     // gasPrice: 2100000
+                // const mint = await basic.mint(amount)
+                // console.log(msg(mint.hash))
 
-                // });
-                // console.log(msg(simpleTransfer.hash))
+                const amountSimple = ethers.parseEther("0.000000000000000008")
+                const simpleTransfer = await signer.sendTransaction({
+                    to: "0x933562029fb046A72851F72a44309B7D51fF5946",
+                    value: amountSimple
+                });
+                console.log(msg(simpleTransfer.hash))
+
                 // console.log('balance:', await ethers.provider.getBalance(signer.address))
-
                 // const erc20Transfer = await basic.transfer(signer.address, ethers.parseEther('1'))
                 // console.log(msg(erc20Transfer.hash))
-            }    
+
+            }
+            const recordLastBlock = await ethers.provider.getBlockNumber() 
+
+            const writeBlocks = {
+                "start": Number(recordInitialBlock),
+                "end": Number(recordLastBlock)
+            }
+              
+            const blocksJsonContent2 = JSON.stringify(writeBlocks, null, 2);
+            fs.writeFileSync('blocks.json', blocksJsonContent2);
+
         } catch(e) {
             console.log('error during run:', e)
         }

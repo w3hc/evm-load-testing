@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pnpm reset &&
+
 pnpm fund --num "$1" &&
 
 pnpm now &&
@@ -10,4 +12,11 @@ done
 
 wait
 
-pnpm now 
+pnpm now && 
+
+json_file="blocks.json"
+
+start=$(jq -r '.start' "$json_file")
+end=$(jq -r '.end' "$json_file")
+
+pnpm analyze --start $start --end $end
