@@ -10,7 +10,8 @@
     "dance": "hardhat --network arthera-devnet dance",
     "now": "npx hardhat run scripts/now.ts --network arthera-devnet",
     "analyze": "hardhat analyze --network arthera-devnet",
-    "reset": "hardhat run scripts/reset.ts"
+    "reset": "hardhat run scripts/reset.ts",
+    "balance": "hardhat balance --network arthera-devnet"
   },
   "keywords": [],
   "author": "",

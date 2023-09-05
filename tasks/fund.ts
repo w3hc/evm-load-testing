@@ -12,9 +12,10 @@ task("fund", "Creates and funds as many wallets as you want")
 
         console.log("Creating and funding new accounts...")
 
+        let newAccount
         for(let i=0;i<Number(arg1.num);i++) {
 
-            const newAccount = ethers.Wallet.createRandom()
+            newAccount = ethers.Wallet.createRandom()
             console.log("Public address:", newAccount.address, "-> Private key: " + msg(newAccount.privateKey))
 
             const amount = ethers.parseEther("0.01")
@@ -22,8 +23,6 @@ task("fund", "Creates and funds as many wallets as you want")
                 to: newAccount.address,
                 value: amount
             });
-
-            await fundWallet.wait(1)
 
             const walletsData = wallets
             const newEntry = (i+1).toString()
@@ -44,6 +43,12 @@ task("fund", "Creates and funds as many wallets as you want")
 
 
         }
+        const amount = ethers.parseEther("0.01")
+            const fundWallet = await master.sendTransaction({
+                to: newAccount.address,
+                value: amount
+            });
+        await fundWallet.wait(1)
         
     }
 );
