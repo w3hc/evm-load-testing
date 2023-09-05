@@ -11,6 +11,7 @@ task("dance", "Keep on running")
 .addParam("wallet").setAction(
 
     async (arg1) => {
+        let signer
         try {
             const abiDir = '../evm-load-testing/artifacts/contracts';
             const basicAbiData = abiDir + "/" + "Basic.sol" + "/" + "Basic" + ".json"  
@@ -25,7 +26,7 @@ task("dance", "Keep on running")
             const walletNumber: keyof typeof wallets= arg1.wallet
 
             const spacialWallet = new ethers.Wallet(wallets[walletNumber].privateKey);
-            const signer = spacialWallet.connect(ethers.provider);
+            signer = spacialWallet.connect(ethers.provider);
     
             const basic = new ethers.Contract('0xFaF6278e15994710a98ef4E4106156B8b413fA17', basicAbi.abi, signer)
     
@@ -61,7 +62,7 @@ task("dance", "Keep on running")
             fs.writeFileSync('blocks.json', blocksJsonContent2);
 
         } catch(e) {
-            console.log('error during run:', e)
+            console.log(signer.address, 'has no funds')
         }
         
     }
