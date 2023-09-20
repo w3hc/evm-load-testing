@@ -12,6 +12,8 @@ task("dance", "Keep on running")
 
     async (arg1) => {
         let signer
+        let recordInitialBlock
+        let recordLastBlock
         try {
             const walletNumber: keyof typeof wallets= arg1.wallet
             const spacialWallet = new ethers.Wallet(wallets[walletNumber].privateKey);
@@ -19,9 +21,9 @@ task("dance", "Keep on running")
             const Basic = await ethers.getContractFactory('Basic')
             const basic = new ethers.Contract('0xFaF6278e15994710a98ef4E4106156B8b413fA17', Basic.interface, signer)
             const amount = ethers.parseEther('42')
-            const recordInitialBlock = await ethers.provider.getBlockNumber() 
+            recordInitialBlock = await ethers.provider.getBlockNumber() 
 
-            for(let i=0;i<300;i++) {
+            for(let i=0;i<500;i++) {
 
                 // const mint = await basic.mint(amount)
                 // console.log(msg(mint.hash))
@@ -37,20 +39,20 @@ task("dance", "Keep on running")
                 // const erc20Transfer = await basic.transfer(signer.address, ethers.parseEther('1'))
                 // console.log(msg(erc20Transfer.hash))
 
-            }
-            const recordLastBlock = await ethers.provider.getBlockNumber() 
-
-            const writeBlocks = {
-                "start": Number(recordInitialBlock),
-                "end": Number(recordLastBlock)
-            }
-              
-            const blocksJsonContent2 = JSON.stringify(writeBlocks, null, 2);
-            fs.writeFileSync('blocks.json', blocksJsonContent2);
+            } 
 
         } catch(e) {
             console.log(signer.address, 'has no funds')
         }
+
+        recordLastBlock = await ethers.provider.getBlockNumber()
+
+        const writeBlocks = {
+            "start": Number(recordInitialBlock),
+            "end": Number(recordLastBlock)
+        }
+        const blocksJsonContent2 = JSON.stringify(writeBlocks, null, 2);
+        fs.writeFileSync('blocks.json', blocksJsonContent2);
         
     }
 );
