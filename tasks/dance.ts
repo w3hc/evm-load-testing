@@ -13,25 +13,12 @@ task("dance", "Keep on running")
     async (arg1) => {
         let signer
         try {
-            const abiDir = '../evm-load-testing/artifacts/contracts';
-            const basicAbiData = abiDir + "/" + "Basic.sol" + "/" + "Basic" + ".json"  
-            let basicAbi;
-            try {
-                basicAbi = JSON.parse(fs.readFileSync(basicAbiData, {encoding:'utf8', flag:'r'}));
-            } catch (error) {
-                console.log(error)
-                return;
-            }
-
             const walletNumber: keyof typeof wallets= arg1.wallet
-
             const spacialWallet = new ethers.Wallet(wallets[walletNumber].privateKey);
             signer = spacialWallet.connect(ethers.provider);
-    
-            const basic = new ethers.Contract('0xFaF6278e15994710a98ef4E4106156B8b413fA17', basicAbi.abi, signer)
-    
+            const Basic = await ethers.getContractFactory('Basic')
+            const basic = new ethers.Contract('0xFaF6278e15994710a98ef4E4106156B8b413fA17', Basic.interface, signer)
             const amount = ethers.parseEther('42')
-
             const recordInitialBlock = await ethers.provider.getBlockNumber() 
 
             for(let i=0;i<300;i++) {
